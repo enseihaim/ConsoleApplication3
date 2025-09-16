@@ -12,9 +12,9 @@ struct Date
 };
 
 class Student {
-    char* name = nullptr;
-    char* lastname = nullptr;
-    char* middlename = nullptr;
+    char* name;
+    char* lastname;
+    char* middlename;
 
     Date fdate;               
     string phone;            
@@ -26,7 +26,15 @@ class Student {
     int group;                
 
 public:
-    void setName(char* n)
+    Student() : name(nullptr), lastname(nullptr), middlename(nullptr) {}
+
+    ~Student() {
+        delete[] name;
+        delete[] lastname;
+        delete[] middlename;
+    }
+
+    inline void setName(char* n)
     {
         if (name)
             delete[] name;
@@ -110,9 +118,7 @@ public:
 
 
 
-
-
-void Student::printName()
+inline void Student::printName()
 {
     cout << "Name: " << name << endl;
     cout << "lName: " << lastname << endl;
