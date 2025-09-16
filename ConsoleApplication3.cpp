@@ -126,9 +126,6 @@ int main()
     SetConsoleOutputCP(1251);
     setlocale(LC_ALL, "Ukrainian");
     Student s;
-    char temp[100];
-    cout << "Enter name: ";
-    cin.getline(temp, 100); 
     s.inputStudent();         
     s.printName();
     s.inputData();
